@@ -1,0 +1,9 @@
+名称:  Unzip V2 决赛
+
+关于:  workflow_dispatchorkflow_dispatch:
+
+许可:  内容容容图:  写
+
+工作:  unzipnzip:  r行uns-on:  ubuntu 最新步骤buntu-latest steps:  - 名称:  C账存储库用途heckout 存储库用途:  动作/结账@v4
+
+- 名称name:  Find 和提取 ZIP 外壳:  b灰分运行:  |  如果 [! -f "$ZIP_FILE" ]; 然后回声 "::error::ZIP file not found: $ZIP_FILE" echo "请检查上传的 ZIP filename." exit 1 fi mkdir -p /tmp/v2-extracted unzip -q "$ZIP_FILE" -d /tmp/v2-extracted SOURCE="/tmp/v2-extracted" mapfile -t DIRS < < (find "$SOURCE" -mindepth 1 -maxdepth 1 -maxdepth 1 -type d) if ["${#DIRS[@]}" -eq 1] & \ ["$(find "$SOURCE" -mindepth 1 -maxdepth 1 | wc -l)" -eq 1 ];然后 SOURCE="${DIRS[0]}" fi cp -a "$SOURCE"/。 . echo "ZIP extract successful." - name: commit extract files shell:bash run: | set -e git config user.name "github-actions [bot]" git config user.email "41898282+github-actions [bot]@users.noreply.github.com" git add -A if git diff --cached --quiet; then echo "No file change to commit." else git commit -m "Extract V2 Final project files" git push fi
